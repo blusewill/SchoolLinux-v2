@@ -24,6 +24,7 @@ apt install nala -y
 cd $builddir
 mkdir -p /home/$username/.config
 mkdir -p /home/$username/.fonts
+cp -R dotconfig/* /home/$username/.config/
 chown -R $username:$username /home/$username
 
 # Installing Essential Programs 
@@ -33,10 +34,6 @@ flatpak install flathub com.zettlr.Zettlr -y
 
 # Installing Other less important Programs
 nala install mixxx mixxx-data lmms lmms-common -y
-
-# Download Nordic Theme
-cd /usr/share/themes/
-git clone https://github.com/EliverLara/Nordic.git
 
 # load KDE config and font install
 cd $builddir 
@@ -49,7 +46,6 @@ wget https://github.com/justfont/open-huninn-font/releases/download/v2.0/jf-open
 mv jf-openhuninn-2.0.ttf /home/$username/.fonts
 mv dotfonts/fontawesome/otfs/*.otf /home/$username/.fonts/
 chown $username:$username /home/$username/.fonts/*
-sudo su $username ./scripts/konsave-install.sh
 
 # Reloading Font
 fc-cache -vf
