@@ -28,7 +28,7 @@ cp -R dotconfig/* /home/$username/.config/
 chown -R $username:$username /home/$username
 
 # Installing Essential Programs 
-nala install kde-plasma-desktop libreoffice libreoffice-gtk3 lsb-release firefox-esr firefox-esr-l10n* flatpak stellarium stellarium-data kdenlive kdenlive-data sddm vim extremetuxracer extremetuxracer-data ttf-mscorefonts-installer dolphin python3.11-venv python3.11 ark -y
+nala install kde-plasma-desktop libreoffice libreoffice-gtk3 lsb-release firefox-esr firefox-esr-l10n* flatpak stellarium stellarium-data kdenlive kdenlive-data sddm vim extremetuxracer extremetuxracer-data ttf-mscorefonts-installer dolphin python3.11-venv python3.11 ark krita* inkscape ink-generator inkscape-open-symbols inkscape-textext inkscape-tutorials -y
 
 flatpak install flathub com.zettlr.Zettlr -y
 

@@ -37,6 +37,10 @@ Notepad : [Kate](https://kate-editor.org/zh-tw/)
 
 Archive Tool : [ark](https://github.com/KDE/ark)
 
+Painting Tools : [Krita](https://krita.org/)
+
+Vector Painting Tools : [Inkscape](https://inkscape.org/)
+
 ### Opitional Software
 
 DJ Mixing : [Mixxx](https://mixxx.org/)
