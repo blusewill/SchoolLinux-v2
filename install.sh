@@ -30,6 +30,13 @@ chown -R $username:$username /home/$username
 # Installing Essential Programs 
 nala install kde-plasma-desktop libreoffice libreoffice-gtk3 lsb-release firefox-esr firefox-esr-l10n* flatpak stellarium stellarium-data kdenlive kdenlive-data sddm vim extremetuxracer extremetuxracer-data ttf-mscorefonts-installer dolphin python3.11-venv python3.11 ark krita* inkscape ink-generator inkscape-open-symbols inkscape-textext inkscape-tutorials -y
 
+# Flatpak Essential Programs
+# Setting Up flathub repo
+
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+# Start to install
+
 flatpak install flathub com.zettlr.Zettlr -y
 
 # Installing Other less important Programs
