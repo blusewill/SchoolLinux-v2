@@ -33,7 +33,7 @@ Stargazing Simulation : [stellarium](https://stellarium.org/)
 
 Video Editor : [Kdenlive](https://kdenlive.org/)
 
-Notepad : [mousepad](https://github.com/codebrainz/mousepad)
+Notepad : [Kate](https://kate-editor.org/zh-tw/)
 
 Archive Tool : [ark](https://github.com/KDE/ark)
 
