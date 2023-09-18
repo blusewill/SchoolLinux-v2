@@ -41,10 +41,21 @@ git clone https://github.com/EliverLara/Nordic.git
 # load KDE config and font install
 cd $builddir 
 nala install fonts-font-awesome -y
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
+unzip FiraCode.zip -d /home/$username/.fonts
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip
+unzip Meslo.zip -d /home/$username/.fonts
+wget https://github.com/justfont/open-huninn-font/releases/download/v2.0/jf-openhuninn-2.0.ttf
+mv jf-openhuninn-2.0.ttf /home/$username/.fonts
+mv dotfonts/fontawesome/otfs/*.otf /home/$username/.fonts/
+chown $username:$username /home/$username/.fonts/*
 sudo su $username ./scripts/konsave-install.sh
 
 # Reloading Font
 fc-cache -vf
+
+# Removing zip Files
+rm ./FiraCode.zip ./Meslo.zip
 
 # SDDM Auto Login
 
