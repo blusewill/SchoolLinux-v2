@@ -35,6 +35,8 @@ Video Editor : [Kdenlive](https://kdenlive.org/)
 
 Notepad : [mousepad](https://github.com/codebrainz/mousepad)
 
+Archive Tool : [ark](https://github.com/KDE/ark)
+
 ### Opitional Software
 
 DJ Mixing : [Mixxx](https://mixxx.org/)
