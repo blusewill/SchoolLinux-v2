@@ -48,6 +48,8 @@ fc-cache -vf
 
 # SDDM Auto Login
 
+mkdir /etc/sddm.conf.d
+
 sddm_file="/etc/sddm.conf.d/autologin.conf"
 
 # Check if sddm_file is there.
