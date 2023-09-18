@@ -25,7 +25,7 @@ Desktop Enviroment : [KDE Plasma](https://kde.org/plasma-desktop/)
 
 Office Suite : [LibreOffice](https://libreoffice.org/)
 
-Web Browser : [Firefox Extended Support Release Version](https://www.mozilla.org/en-US/firefox/new)
+Web Browser : [Firefox Extended Support Release](https://www.mozilla.org/en-US/firefox/new)
 
 Markdown Editor : [Zettlr](https://www.zettlr.com/)
 
