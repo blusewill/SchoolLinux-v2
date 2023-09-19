@@ -16,8 +16,10 @@ assignees: ''
 I want you guys add this Software Because.........
 
 **It is available on Debian's Repo?** [Check it Here](https://www.debian.org/distrib/packages)
--[] Yes
--[x] No
+
+- [ ] Yes
+
+- [x] No
 
 **Additional context**
 Add any other context or screenshots about the feature request here.
