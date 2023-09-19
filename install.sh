@@ -28,7 +28,7 @@ cp -R dotconfig/* /home/$username/.config/
 chown -R $username:$username /home/$username
 
 # Installing Essential Programs 
-nala install kde-plasma-desktop lsb-release firefox-esr firefox-esr-l10n* flatpak sddm vim ttf-mscorefonts-installer dolphin python3.11-venvpython3.11 findutils -y
+nala install kde-plasma-desktop lsb-release firefox-esr firefox-esr-l10n* flatpak sddm vim ttf-mscorefonts-installer dolphin python3.11-venv python3.11 findutils -y
 
 # Install Default Applications
 
