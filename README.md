@@ -53,8 +53,8 @@ You can request Applications by going to issues tab or click on [here](https://g
 
 # Installation
 
-1. Install base Debian on your PC (DO NOT INSTALL DESKTOP ENVIRONMENT)
+1. Install base Debian on your PC **(DO NOT INSTALL DESKTOP ENVIRONMENT)**
 
-1. And use git clone https://github.com/blusewill/SchoolLinux-v2
+1. And use `git clone https://github.com/blusewill/SchoolLinux-v2`
 
 1. Sit and Wait your School Linux will be installed
