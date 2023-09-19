@@ -3,7 +3,7 @@ This Project is based on the thing that I didn't maintain it anymore and Linux N
 
 [School Linux Version 1](https://github.com/blusewill/SchoolLinux)
 
-but today I am revivaling this project to make it based on [Debian](https://www.debian.org/) and have better experience and more tools!
+but today I am revisiting this project to make it based on [Debian](https://www.debian.org/) and have better experience and more tools!
 
 ---
 
@@ -46,3 +46,15 @@ Vector Painting Tools : [Inkscape](https://inkscape.org/)
 DJ Mixing : [Mixxx](https://mixxx.org/)
 
 DAW : [LMMS](https://lmms.io/)
+
+# Request Application
+
+You can request Applications by going to issues tab or click on [here](https://github.com/blusewill/SchoolLinux-v2/issues/new?assignees=&labels=enhancement&projects=&template=request-software.md&title=%5BRequest%5D)
+
+# Installation
+
+1. Install base Debian on your PC (DO NOT INSTALL DESKTOP ENVIRONMENT)
+
+1. And use git clone https://github.com/blusewill/SchoolLinux-v2
+
+1. Sit and Wait your School Linux will be installed
