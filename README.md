@@ -3,7 +3,7 @@ This Project is based on the thing that I didn't maintain it anymore and Linux N
 
 [School Linux Version 1](https://github.com/blusewill/SchoolLinux)
 
-but today I am revivaling this project to make it based on [Debian](https://www.debian.org/) and have better experience and more tools!
+but today I am revisiting this project to make it based on [Debian](https://www.debian.org/) and have better experience and more tools!
 
 ---
 
@@ -25,7 +25,7 @@ Desktop Enviroment : [KDE Plasma](https://kde.org/plasma-desktop/)
 
 Office Suite : [LibreOffice](https://libreoffice.org/)
 
-Web Browser : [Firefox Extended Support Release Version](https://www.mozilla.org/en-US/firefox/new)
+Web Browser : [Firefox Extended Support Release](https://www.mozilla.org/en-US/firefox/new)
 
 Markdown Editor : [Zettlr](https://www.zettlr.com/)
 
@@ -33,10 +33,28 @@ Stargazing Simulation : [stellarium](https://stellarium.org/)
 
 Video Editor : [Kdenlive](https://kdenlive.org/)
 
-Notepad : [mousepad](https://github.com/codebrainz/mousepad)
+Notepad : [Kate](https://kate-editor.org/zh-tw/)
+
+Archive Tool : [ark](https://github.com/KDE/ark)
+
+Painting Tools : [Krita](https://krita.org/)
+
+Vector Painting Tools : [Inkscape](https://inkscape.org/)
 
 ### Opitional Software
 
 DJ Mixing : [Mixxx](https://mixxx.org/)
 
 DAW : [LMMS](https://lmms.io/)
+
+# Request Application
+
+You can request Applications by going to issues tab or click on [here](https://github.com/blusewill/SchoolLinux-v2/issues/new?assignees=&labels=enhancement&projects=&template=request-software.md&title=%5BRequest%5D)
+
+# Installation
+
+1. Install base Debian on your PC (DO NOT INSTALL DESKTOP ENVIRONMENT)
+
+1. And use git clone https://github.com/blusewill/SchoolLinux-v2
+
+1. Sit and Wait your School Linux will be installed
