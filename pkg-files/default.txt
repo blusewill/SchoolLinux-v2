@@ -1,0 +1,17 @@
+libreoffice
+libreoffice-gtk3
+firefox-esr
+firefox-esr-l10n*
+stellarium
+stellarium-data
+kdenlive
+kdenlive-data
+extremetuxracer
+extremetuxracer-data
+ark
+krita*
+inkscape
+ink-generator
+inkscape-open-symbols
+inkscape-textext
+inkscape-tutorials 

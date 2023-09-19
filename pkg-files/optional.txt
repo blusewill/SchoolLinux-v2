@@ -1,0 +1,4 @@
+mixxx
+mixxx-data
+lmms
+lmms-common

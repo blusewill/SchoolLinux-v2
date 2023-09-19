@@ -28,7 +28,11 @@ cp -R dotconfig/* /home/$username/.config/
 chown -R $username:$username /home/$username
 
 # Installing Essential Programs 
-nala install kde-plasma-desktop libreoffice libreoffice-gtk3 lsb-release firefox-esr firefox-esr-l10n* flatpak stellarium stellarium-data kdenlive kdenlive-data sddm vim extremetuxracer extremetuxracer-data ttf-mscorefonts-installer dolphin python3.11-venv python3.11 ark krita* inkscape ink-generator inkscape-open-symbols inkscape-textext inkscape-tutorials -y
+nala install kde-plasma-desktop lsb-release firefox-esr firefox-esr-l10n* flatpak sddm vim ttf-mscorefonts-installer dolphin python3.11-venv python3.11 findutils -y
+
+# Install Default Applications
+
+xargs -a $builddir/pkg-files/default.txt nala install -y
 
 # Flatpak Essential Programs
 # Setting Up flathub repo
@@ -37,10 +41,11 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 # Start to install
 
-flatpak install flathub com.zettlr.Zettlr -y
+xargs -a $builddir/pkg-files/flatpak.txt flatpak install -y
 
-# Installing Other less important Programs
-nala install mixxx mixxx-data lmms lmms-common -y
+# Installing Optional Programs
+
+xargs -a $builddir/pkg-files/optional.txt nala install -y
 
 # load KDE config and font install
 cd $builddir 
