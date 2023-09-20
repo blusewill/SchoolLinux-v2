@@ -10,7 +10,7 @@ fi
 # Installing git
 
 echo "Installing git."
-apt install -y git
+sudo apt install -y git
 
 echo "Cloning the School Linux Project"
 git clone -b dev https://github.com/blusewill/Schoollinux-v2
