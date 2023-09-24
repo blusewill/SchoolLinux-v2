@@ -1,3 +1,5 @@
+audacity
+audacity-data
 libreoffice
 libreoffice-gtk3
 firefox-esr
@@ -14,4 +16,6 @@ inkscape
 ink-generator
 inkscape-open-symbols
 inkscape-textext
-inkscape-tutorials 
+inkscape-tutorials
+fcitx5*
+kde-config-fcitx5
