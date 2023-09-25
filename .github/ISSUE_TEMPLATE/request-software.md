@@ -15,11 +15,13 @@ assignees: ''
 **Why Would you like us to add this Software?**
 I want you guys add this Software Because.........
 
-**It is available on Debian's Repo?** [Check it Here](https://www.debian.org/distrib/packages)
+**It is available on?** [Check it Here](https://www.debian.org/distrib/packages)
 
-- [ ] Yes
+- [x] Debian
 
-- [x] No
+- [ ] Flatpak
+
+- [ ] Non of the above
 
 **Additional context**
 Add any other context or screenshots about the feature request here.

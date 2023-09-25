@@ -2,3 +2,5 @@ mixxx
 mixxx-data
 lmms
 lmms-common
+musescore3
+musescore3-common

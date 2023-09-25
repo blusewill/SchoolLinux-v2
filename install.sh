@@ -9,18 +9,23 @@ fi
 username=$(id -u -n 1000)
 builddir=$(pwd)
 
-# Enable contrib to have wider range of packages
+# Enable repos to have wider range of packages
 
 sed -r -i 's/^deb(.*)$/deb\1 contrib/g' /etc/apt/sources.list
+sed -r -i 's/^deb(.*)$/deb\1 non-free/g' /etc/apt/sources.list
+sed -r -i 's/^deb(.*)$/deb\1 non-free-firmware/g' /etc/apt/sources.list
 
 # Update packages list and update system
+
 apt update
 apt upgrade -y
 
 # Install nala
+
 apt install nala -y
 
 # Making .config and Moving config files and background to Pictures
+
 cd $builddir
 mkdir -p /home/$username/.config
 mkdir -p /home/$username/.fonts
@@ -28,7 +33,7 @@ cp -R dotconfig/* /home/$username/.config/
 chown -R $username:$username /home/$username
 
 # Installing Essential Programs 
-nala install kde-plasma-desktop lsb-release firefox-esr firefox-esr-l10n* flatpak sddm vim ttf-mscorefonts-installer dolphin python3.11-venv python3.11 findutils -y
+nala install kde-plasma-desktop lsb-release flatpak sddm vim ttf-mscorefonts-installer dolphin python3.11-venv python3.11 findutils -y
 
 # Install Default Applications
 
@@ -47,7 +52,13 @@ xargs -a $builddir/pkg-files/flatpak.txt flatpak install -y
 
 xargs -a $builddir/pkg-files/optional.txt nala install -y
 
-# load KDE config and font install
+# Install Scratch 3.0
+
+wget https://github.com/redshaderobotics/scratch3.0-linux/releases/download/3.3.0/scratch-desktop_3.3.0_amd64.deb -O $builddir/pkg-files/scratch.deb
+
+nala install $builddir/pkg-files/scratch.deb -y
+
+# Font Install
 cd $builddir 
 nala install fonts-font-awesome -y
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
@@ -56,7 +67,6 @@ wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip
 unzip Meslo.zip -d /home/$username/.fonts
 wget https://github.com/justfont/open-huninn-font/releases/download/v2.0/jf-openhuninn-2.0.ttf
 mv jf-openhuninn-2.0.ttf /home/$username/.fonts
-mv dotfonts/fontawesome/otfs/*.otf /home/$username/.fonts/
 chown $username:$username /home/$username/.fonts/*
 
 # Reloading Font
