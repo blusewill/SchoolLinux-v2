@@ -15,37 +15,9 @@ If you would like to Support this Project and you are a School Principal or a Co
 
 But if you want to support me you can also go to [Buy me a coffee](https://buymeacoffee.com/blusewill) to give me a tip.
 
-## Software that will be installed
+# Packages
 
-Desktop Enviroment : [KDE Plasma](https://kde.org/plasma-desktop/)
-
-Office Suite : [LibreOffice](https://libreoffice.org/)
-
-Web Browser : [Firefox Extended Support Release](https://www.mozilla.org/en-US/firefox/new)
-
-Markdown Editor : [Zettlr](https://www.zettlr.com/)
-
-Stargazing Simulation : [stellarium](https://stellarium.org/)
-
-Video Editor : [Kdenlive](https://kdenlive.org/)
-
-Notepad : [Kate](https://kate-editor.org/zh-tw/)
-
-Archive Tool : [ark](https://github.com/KDE/ark)
-
-Painting Tools : [Krita](https://krita.org/)
-
-Vector Painting Tools : [Inkscape](https://inkscape.org/)
-
-### Opitional Software
-
-DJ Mixing : [Mixxx](https://mixxx.org/)
-
-DAW : [LMMS](https://lmms.io/)
-
-# Request Application
-
-You can request Applications by going to issues tab or click on [here](https://github.com/blusewill/SchoolLinux-v2/issues/new?assignees=&labels=enhancement&projects=&template=request-software.md&title=%5BRequest%5D)
+Can be Viewed on [PACKAGES.md](https://github.com/blusewill/SchoolLinux-v2/blob/master/PACKAGES.md)
 
 # Installation
 
