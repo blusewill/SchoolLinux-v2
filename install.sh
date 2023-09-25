@@ -52,12 +52,6 @@ xargs -a $builddir/pkg-files/flatpak.txt flatpak install -y
 
 xargs -a $builddir/pkg-files/optional.txt nala install -y
 
-# Install Scratch 3.0
-
-wget https://github.com/redshaderobotics/scratch3.0-linux/releases/download/3.3.0/scratch-desktop_3.3.0_amd64.deb -O $builddir/pkg-files/scratch.deb
-
-nala install $builddir/pkg-files/scratch.deb -y
-
 # Font Install
 cd $builddir 
 nala install fonts-font-awesome -y
