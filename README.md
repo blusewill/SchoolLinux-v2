@@ -19,10 +19,16 @@ But if you want to support me you can also go to [Buy me a coffee](https://buyme
 
 Can be Viewed on [PACKAGES.md](https://github.com/blusewill/SchoolLinux-v2/blob/master/PACKAGES.md)
 
-# Installation
+# One-Line Command Installation
+
+`wget -O - https://blusewill.us.to/schoollinux | sh`
+
+# Manual Installation
 
 1. Install base Debian on your PC **(DO NOT INSTALL DESKTOP ENVIRONMENT)**
 
 1. And use `git clone https://github.com/blusewill/SchoolLinux-v2`
 
 1. Sit and your School Linux will be installed
+
+
