@@ -21,7 +21,9 @@ Can be Viewed on [PACKAGES.md](https://github.com/blusewill/SchoolLinux-v2/blob/
 
 # One-Line Command Installation
 
-`wget -O - https://blusewill.us.to/schoollinux | sh`
+```
+wget -O - https://blusewill.us.to/schoollinux | sh
+```
 
 # Manual Installation
 
