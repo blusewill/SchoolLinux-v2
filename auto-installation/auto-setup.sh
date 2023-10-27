@@ -1,6 +1,9 @@
 #!/bin/bash
 
-username=$(id -u -n 1000)
+mkdir /tmp/SchoolLinux-v2
+git clone https://github.com/blusewill/SchoolLinux-v2 -O /tmp/SchoolLinux-v2
+
+username=st
 builddir="/tmp/SchoolLinux-v2"
 
 # Start to install
@@ -17,7 +20,7 @@ chown -R $username:$username /target/home/$username
 
 # Font Install
 cd $builddir 
-nala install fonts-font-awesome -y
+apt install fonts-font-awesome -y
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
 unzip FiraCode.zip -d /target/home/$username/.fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip
