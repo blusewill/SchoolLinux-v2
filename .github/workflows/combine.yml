@@ -1,18 +1,21 @@
-name: "Combine Dependabot PRs"
-on:
-  workflow_dispatch:
+name: Dependabot auto-approve
+on: pull_request
+
+permissions:
+  pull-requests: write
 
 jobs:
-  combine-prs:
+  dependabot:
     runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
-      - uses: actions/checkout@v4.1.1
-      - uses: maadhattah/combine-dependabot-prs@main
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1
         with:
-          branchPrefix: "dependabot"
-          mustBeGreen: true
-          combineBranchName: "combined-prs"
-          ignoreLabel: "nocombine"
-          baseBranch: "main"
-          openPR: true
-          allowSkipped: false
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Approve a PR
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
