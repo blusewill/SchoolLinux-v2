@@ -97,6 +97,11 @@ systemctl set-default graphical.target
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
 update-grub
 
+# Add AdGuard Filter
+cd $builddir
+rm -rf /etc/resolve.conf
+mv resolve.conf /etc/resolve.conf
+
 # Reboot
 
 systemctl reboot
