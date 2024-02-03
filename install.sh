@@ -33,7 +33,7 @@ cp -R dotconfig/* /home/$username/.config/
 chown -R $username:$username /home/$username
 
 # Installing Essential Programs 
-nala install kde-plasma-desktop lsb-release flatpak sddm vim ttf-mscorefonts-installer dolphin python3.11-venv python3.11 findutils -y
+nala install kde-plasma-desktop lsb-release flatpak sddm vim ttf-mscorefonts-installer dolphin python3.11-venv python3.11 findutils resolvconf -y
 
 # Install Default Applications
 
@@ -98,9 +98,10 @@ sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
 update-grub
 
 # Add AdGuard Filter
+
 cd $builddir
-rm -rf /etc/resolve.conf
-mv resolve.conf /etc/resolve.conf
+rm /etc/resolvconf/resolv.conf.d/head
+mv adguard-dns /etc/resolvconf/resolv.conf.d/head
 
 # Reboot
 
