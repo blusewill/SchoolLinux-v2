@@ -37,7 +37,7 @@ nala install kde-plasma-desktop lsb-release flatpak sddm vim ttf-mscorefonts-ins
 
 # Install Default Applications
 
-xargs -a $builddir/pkg-files/default.txt nala install -y
+xargs nala install -y < $builddir/pkg-files/default.txt
 
 # Flatpak Essential Programs
 # Setting Up flathub repo
@@ -46,11 +46,11 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 # Start to install
 
-xargs -a $builddir/pkg-files/flatpak.txt flatpak install -y
+xargs flatpak install -y < $builddir/pkg-files/flatpak.txt
 
 # Installing Optional Programs
 
-xargs -a $builddir/pkg-files/optional.txt nala install -y
+xargs nala install -y < $builddir/pkg-files/optional.txt
 
 # Font Install
 cd $builddir 
