@@ -11,7 +11,7 @@ builddir=$(pwd)
 
 # Mirror Test
 apt install jq curl netselect-apt -y
-$builddir/mirrortest
+"$builddir"/mirrortest
 
 # Enable repos to have wider range of packages
 
@@ -30,7 +30,7 @@ apt install nala -y
 
 # Making .config and Moving config files and background to Pictures
 
-cd $builddir
+cd "$builddir"
 mkdir -p /home/$username/.config
 mkdir -p /home/$username/.fonts
 cp -R dotconfig/* /home/$username/.config/
