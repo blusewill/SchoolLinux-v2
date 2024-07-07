@@ -10,6 +10,7 @@ username=$(id -u -n 1000)
 builddir=$(pwd)
 
 # Mirror Test
+apt install jq curl netselect-apt -y
 $builddir/mirrortest
 
 # Enable repos to have wider range of packages
