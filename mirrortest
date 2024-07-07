@@ -1,47 +1,17 @@
 #!/bin/bash
 
-# Function to get the country code
-get_country_code() {
-    country_code=$(curl -s http://ip-api.com/json/ | jq -r .countryCode)
-    echo "$country_code"
-}
+# Determine the country code of the current location
+COUNTRY=$(curl -s ifconfig.co/country-iso)
 
-# Function to fetch mirrors for the given country code using netselect-apt
-fetch_fastest_mirror() {
-    country_code="$1"
-    temp_file=$(mktemp)
-    
-    sudo netselect-apt -c "$country_code" -o "$temp_file"
-    
-    if [ -f "$temp_file" ]; then
-        fastest_mirror=$(grep -E '^deb ' "$temp_file" | awk '{print $2}')
-        rm -f "$temp_file"
-    else
-        fastest_mirror=""
-    fi
-    
-    echo "$fastest_mirror"
-}
+# Find the fastest mirror for the specified country
+sudo netselect-apt -c $COUNTRY stable
 
-# Function to update sources.list with the fastest mirror
-update_sources_list() {
-    fastest_mirror="$1"
-    sources_list_path="/etc/apt/sources.list"
-    mirror_entry="deb $fastest_mirror stable main contrib non-free"
+# Backup the current sources.list
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
-    echo "$mirror_entry" | sudo tee "$sources_list_path" > /dev/null
-    sudo apt-get update
-}
+# Replace sources.list with the newly generated one
+sudo mv sources.list /etc/apt/sources.list
 
-# Main script execution
-country_code=$(get_country_code)
-echo "Detected country code: $country_code"
-
-fastest_mirror=$(fetch_fastest_mirror "$country_code")
-if [ -n "$fastest_mirror" ]; then
-    echo "Fastest mirror: $fastest_mirror"
-    update_sources_list "$fastest_mirror"
-else
-    echo "No responsive mirrors found"
-fi
+# Update the package list
+sudo apt-get update
 
