@@ -6,30 +6,20 @@ get_country_code() {
     echo "$country_code"
 }
 
-# Function to fetch mirrors for the given country code
-fetch_mirrors() {
+# Function to fetch mirrors for the given country code using netselect-apt
+fetch_fastest_mirror() {
     country_code="$1"
-    mirrors_url="https://www.debian.org/mirror/list"
-    mirrors=($(curl -s $mirrors_url | grep -Eo 'http://[^"]+' | grep "\.$country_code/"))
-    echo "${mirrors[@]}"
-}
-
-# Function to test mirrors and find the fastest one
-test_mirrors() {
-    mirrors=("$@")
-    fastest_mirror=""
-    lowest_latency=999999
-
-    for mirror in "${mirrors[@]}"; do
-        hostname=$(echo "$mirror" | awk -F[/:] '{print $4}')
-        latency=$(ping -c 3 "$hostname" | tail -1 | awk -F '/' '{print $5}')
-        
-        if (( $(echo "$latency < $lowest_latency" | bc -l) )); then
-            lowest_latency="$latency"
-            fastest_mirror="$mirror"
-        fi
-    done
-
+    temp_file=$(mktemp)
+    
+    sudo netselect-apt -c "$country_code" -o "$temp_file"
+    
+    if [ -f "$temp_file" ]; then
+        fastest_mirror=$(grep -E '^deb ' "$temp_file" | awk '{print $2}')
+        rm -f "$temp_file"
+    else
+        fastest_mirror=""
+    fi
+    
     echo "$fastest_mirror"
 }
 
@@ -47,19 +37,11 @@ update_sources_list() {
 country_code=$(get_country_code)
 echo "Detected country code: $country_code"
 
-mirrors=$(fetch_mirrors "$country_code")
-mirrors_array=($mirrors)
-if [ ${#mirrors_array[@]} -eq 0 ]; then
-    echo "No mirrors found for country code: $country_code"
-    exit 1
-fi
-
-echo "Found ${#mirrors_array[@]} mirrors for $country_code"
-
-fastest_mirror=$(test_mirrors "${mirrors_array[@]}")
+fastest_mirror=$(fetch_fastest_mirror "$country_code")
 if [ -n "$fastest_mirror" ]; then
     echo "Fastest mirror: $fastest_mirror"
     update_sources_list "$fastest_mirror"
 else
     echo "No responsive mirrors found"
 fi
+
