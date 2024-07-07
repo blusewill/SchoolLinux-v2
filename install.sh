@@ -9,6 +9,9 @@ fi
 username=$(id -u -n 1000)
 builddir=$(pwd)
 
+# Mirror Test
+$builddir/mirrortest
+
 # Enable repos to have wider range of packages
 
 sed -r -i 's/^deb(.*)$/deb\1 contrib/g' /etc/apt/sources.list
