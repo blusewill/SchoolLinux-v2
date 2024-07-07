@@ -4,7 +4,7 @@
 COUNTRY=$(curl -s ifconfig.co/country-iso)
 
 # Check Debian Version
-VERSION='.' read -a VERSION_CODENAME < /etc/debian_version
+VERSION=$(env -i bash -c '. /etc/os-release; echo $VERSION_CODENAME')
 
 # Find the fastest mirror for the specified country
 sudo netselect-apt -c $COUNTRY $VERSION
