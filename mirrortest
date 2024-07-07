@@ -1,0 +1,65 @@
+#!/bin/bash
+
+# Function to get the country code
+get_country_code() {
+    country_code=$(curl -s http://ip-api.com/json/ | jq -r .countryCode)
+    echo "$country_code"
+}
+
+# Function to fetch mirrors for the given country code
+fetch_mirrors() {
+    country_code="$1"
+    mirrors_url="https://www.debian.org/mirror/list"
+    mirrors=($(curl -s $mirrors_url | grep -Eo 'http://[^"]+' | grep "\.$country_code/"))
+    echo "${mirrors[@]}"
+}
+
+# Function to test mirrors and find the fastest one
+test_mirrors() {
+    mirrors=("$@")
+    fastest_mirror=""
+    lowest_latency=999999
+
+    for mirror in "${mirrors[@]}"; do
+        hostname=$(echo "$mirror" | awk -F[/:] '{print $4}')
+        latency=$(ping -c 3 "$hostname" | tail -1 | awk -F '/' '{print $5}')
+        
+        if (( $(echo "$latency < $lowest_latency" | bc -l) )); then
+            lowest_latency="$latency"
+            fastest_mirror="$mirror"
+        fi
+    done
+
+    echo "$fastest_mirror"
+}
+
+# Function to update sources.list with the fastest mirror
+update_sources_list() {
+    fastest_mirror="$1"
+    sources_list_path="/etc/apt/sources.list"
+    mirror_entry="deb $fastest_mirror stable main contrib non-free"
+
+    echo "$mirror_entry" | sudo tee "$sources_list_path" > /dev/null
+    sudo apt-get update
+}
+
+# Main script execution
+country_code=$(get_country_code)
+echo "Detected country code: $country_code"
+
+mirrors=$(fetch_mirrors "$country_code")
+mirrors_array=($mirrors)
+if [ ${#mirrors_array[@]} -eq 0 ]; then
+    echo "No mirrors found for country code: $country_code"
+    exit 1
+fi
+
+echo "Found ${#mirrors_array[@]} mirrors for $country_code"
+
+fastest_mirror=$(test_mirrors "${mirrors_array[@]}")
+if [ -n "$fastest_mirror" ]; then
+    echo "Fastest mirror: $fastest_mirror"
+    update_sources_list "$fastest_mirror"
+else
+    echo "No responsive mirrors found"
+fi
