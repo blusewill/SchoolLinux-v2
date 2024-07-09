@@ -142,6 +142,8 @@ ColorSchemeHash=01662607e36cd33eacc7d7d7189f69c26b9a2cc8
 LookAndFeelPackage=org.kde.breezedark.desktop
 SingleClick=false
 
+<<<<<<< HEAD
+=======
 [KFileDialog Settings]
 Allow Expansion=false
 Automatically select filename extension=true
@@ -161,6 +163,7 @@ Sort reversed=false
 Speedbar Width=138
 View Style=DetailTree
 
+>>>>>>> master
 [PreviewSettings]
 MaximumRemoteSize=0
 

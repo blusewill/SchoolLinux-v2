@@ -9,6 +9,10 @@ fi
 username=$(id -u -n 1000)
 builddir=$(pwd)
 
+# Mirror Test
+apt install jq curl netselect-apt -y
+"$builddir"/mirrortest
+
 # Enable repos to have wider range of packages
 
 sed -r -i 's/^deb(.*)$/deb\1 contrib/g' /etc/apt/sources.list
@@ -26,7 +30,7 @@ apt install nala -y
 
 # Making .config and Moving config files and background to Pictures
 
-cd $builddir
+cd "$builddir" || return
 mkdir -p /home/$username/.config
 mkdir -p /home/$username/.fonts
 cp -R dotconfig/* /home/$username/.config/
@@ -53,7 +57,7 @@ xargs flatpak install -y < $builddir/pkg-files/flatpak.txt
 xargs nala install -y < $builddir/pkg-files/optional.txt
 
 # Font Install
-cd $builddir 
+cd "$builddir" || return
 nala install fonts-font-awesome -y
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
 unzip FiraCode.zip -d /home/$username/.fonts

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Determine the country code of the current location
+COUNTRY=$(curl -s ifconfig.co/country-iso)
+
+# Check Debian Version
+VERSION=$(env -i bash -c ". /etc/os-release; echo $VERSION_CODENAME")
+
+# Find the fastest mirror for the specified country
+sudo netselect-apt -c "$COUNTRY" "$VERSION"
+
+# Backup the current sources.list
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+
+# Replace sources.list with the newly generated one
+sudo mv sources.list /etc/apt/sources.list
+
+# Update the package list
+sudo apt-get update
+
