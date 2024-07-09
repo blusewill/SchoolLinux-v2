@@ -30,7 +30,7 @@ apt install nala -y
 
 # Making .config and Moving config files and background to Pictures
 
-cd "$builddir"
+cd "$builddir" || return
 mkdir -p /home/$username/.config
 mkdir -p /home/$username/.fonts
 cp -R dotconfig/* /home/$username/.config/
@@ -63,7 +63,7 @@ wget https://github.com/redshaderobotics/scratch3.0-linux/releases/download/3.3.
 nala install $builddir/pkg-files/scratch.deb -y
 
 # Font Install
-cd $builddir 
+cd "$builddir" || return
 nala install fonts-font-awesome -y
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
 unzip FiraCode.zip -d /home/$username/.fonts

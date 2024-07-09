@@ -4,10 +4,10 @@
 COUNTRY=$(curl -s ifconfig.co/country-iso)
 
 # Check Debian Version
-VERSION=$(env -i bash -c '. /etc/os-release; echo $VERSION_CODENAME')
+VERSION=$(env -i bash -c ". /etc/os-release; echo $VERSION_CODENAME")
 
 # Find the fastest mirror for the specified country
-sudo netselect-apt -c $COUNTRY $VERSION
+sudo netselect-apt -c "$COUNTRY" "$VERSION"
 
 # Backup the current sources.list
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak

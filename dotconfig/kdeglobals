@@ -140,6 +140,10 @@ ColorSchemeHash=01662607e36cd33eacc7d7d7189f69c26b9a2cc8
 
 [KDE]
 LookAndFeelPackage=org.kde.breezedark.desktop
+SingleClick=false
+
+[PreviewSettings]
+MaximumRemoteSize=0
 
 [WM]
 activeBackground=49,54,59
