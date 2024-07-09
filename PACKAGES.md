@@ -74,6 +74,8 @@ kde-config-fcitx5
 
 com.zettlr.Zettlr
 
+edu.mit.Scratch
+
 ## Optional Packages
 
 mixxx

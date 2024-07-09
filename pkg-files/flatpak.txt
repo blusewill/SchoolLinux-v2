@@ -1,1 +1,2 @@
 com.zettlr.Zettlr
+edu.mit.Scratch

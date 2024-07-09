@@ -1,18 +1,24 @@
-name: "Combine Dependabot PRs"
-on:
-  workflow_dispatch:
-
+name: Dependabot auto-approve
+on: pull_request_target
+    
+permissions:
+  contents: write
+  pull-requests: write
+    
 jobs:
-  combine-prs:
+  dependabot:
     runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
-      - uses: actions/checkout@v4.1.0
-      - uses: maadhattah/combine-dependabot-prs@main
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v2.2.0
         with:
-          branchPrefix: "dependabot"
-          mustBeGreen: true
-          combineBranchName: "combined-prs"
-          ignoreLabel: "nocombine"
-          baseBranch: "main"
-          openPR: true
-          allowSkipped: false
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Enable auto-merge for Dependabot PRs
+        if: ${{contains(steps.metadata.outputs.dependency-names, 'my-dependency') && steps.metadata.outputs.update-type == 'version-update:semver-patch'}}
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+

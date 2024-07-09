@@ -3,6 +3,9 @@ MenuBar=Disabled
 [$Version]
 update_info=dolphin_detailsmodesettings.upd:rename-leading-padding
 
+[ContextMenu]
+ShowOpenTerminal=false
+
 [General]
 RememberOpenedTabs=false
 Version=202
@@ -17,4 +20,8 @@ MenuBar=Disabled
 ToolBarsMovable=Disabled
 
 [PreviewSettings]
+<<<<<<< HEAD
 Plugins=appimagethumbnail,audiothumbnail,blenderthumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,mltpreview,mobithumbnail,opendocumentthumbnail,gsthumbnail,svgthumbnail,rawthumbnail,fontthumbnail,ffmpegthumbs,directorythumbnail
+=======
+Plugins=appimagethumbnail,audiothumbnail,blenderthumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,directorythumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,mltpreview,mobithumbnail,opendocumentthumbnail,gsthumbnail,rawthumbnail,svgthumbnail,ffmpegthumbs
+>>>>>>> master
