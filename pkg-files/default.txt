@@ -3,7 +3,6 @@ audacity-data
 libreoffice
 libreoffice-gtk3
 firefox-esr
-firefox-esr-l10n*
 stellarium
 stellarium-data
 kdenlive
